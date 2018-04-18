@@ -14,6 +14,8 @@ namespace SortingExamples
             RNG = new Random();
             BubbleSort.Sort(GetList(10));
             Console.ReadLine();
+            InsertionSort.Sort(GetList(10));
+            Console.ReadLine();
         }
 
         public static List<int> GetList(int size)
@@ -44,6 +46,7 @@ namespace SortingExamples
                 if (i == two)
                     Console.BackgroundColor = ConsoleColor.Blue;
                 Console.Write(list[i] + " ");
+                Console.BackgroundColor = ConsoleColor.Black;
             }
             Console.WriteLine("");
         }
