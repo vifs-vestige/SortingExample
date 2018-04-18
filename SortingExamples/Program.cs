@@ -11,11 +11,15 @@ namespace SortingExamples
         private static Random RNG;
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             RNG = new Random();
             BubbleSort.Sort(GetList(10));
             Console.ReadLine();
             InsertionSort.Sort(GetList(10));
             Console.ReadLine();
+            QuickSort.Sort(GetList(10));
+            Console.ReadLine();
+
         }
 
         public static List<int> GetList(int size)
@@ -30,10 +34,13 @@ namespace SortingExamples
 
         public static void Swap(List<int> list, int one, int two)
         {
-            var temp = list[one];
-            list[one] = list[two];
-            list[two] = temp;
-            PrintList(list, one, two);
+            if (one != two)
+            {
+                var temp = list[one];
+                list[one] = list[two];
+                list[two] = temp;
+                PrintList(list, one, two);
+            }
         }
 
         public static void PrintCheck(List<int> list, int one, int two)
@@ -43,11 +50,18 @@ namespace SortingExamples
             {
                 Console.BackgroundColor = ConsoleColor.Black;
                 if (i == one)
+                {
                     Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
                 if (i == two)
+                {
                     Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
                 Console.Write(list[i] + " ");
                 Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
             }
             Console.WriteLine("");
         }
