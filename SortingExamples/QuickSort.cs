@@ -33,43 +33,46 @@ namespace SortingExamples
 
         private static int Partition(List<int> list, int left, int right)
         {
-            Console.WriteLine("new pivot from: " + left + "to: " + right);
+            Console.WriteLine("new pivot from: " + left + " to: " + right);
             int pivot = list[right];
-            //int i = left - 1;
-            //for (int j = left; j < right; j++)
-            //{
-            //    Program.PrintCheck(list, j, right);
-            //    if(list[j] < pivot)
-            //    {
-            //        i++;
-            //        Program.Swap(list, i, j);
-            //    }
-            //}
-            //Program.Swap(list, i + 1, right);
-            //return i + 1;
 
-            int i = right - 1;
-            for (int j = left; j < i+1; j++)
+            //slower quick sort
+            int i = left - 1;
+            for (int j = left; j < right; j++)
             {
                 Program.PrintCheck(list, j, right);
-                if(list[j] > pivot)
+                if(list[j] < pivot)
                 {
-                    while(list[i] > pivot)
-                    {
-                        Program.PrintCheck(list, i, right);
-                        i--;
-                        if (i < j)
-                        {
-                            Program.Swap(list, i + 1, right);
-                            return i + 1;
-                        }
-                    }
-                    Program.PrintCheck(list, i, right);
+                    i++;
                     Program.Swap(list, i, j);
                 }
             }
-            Program.Swap(list, i+1, right);
-            return i+1;
+            Program.Swap(list, i + 1, right);
+            return i + 1;
+
+            //faster quick sort
+            //int i = right - 1;
+            //for (int j = left; j < i+1; j++)
+            //{
+            //    Program.PrintCheck(list, j, right);
+            //    if(list[j] > pivot)
+            //    {
+            //        while(list[i] > pivot)
+            //        {
+            //            Program.PrintCheck(list, i, right);
+            //            i--;
+            //            if (i < j)
+            //            {
+            //                Program.Swap(list, i + 1, right);
+            //                return i + 1;
+            //            }
+            //        }
+            //        Program.PrintCheck(list, i, right);
+            //        Program.Swap(list, i, j);
+            //    }
+            //}
+            //Program.Swap(list, i+1, right);
+            //return i+1;
         }
 
 
