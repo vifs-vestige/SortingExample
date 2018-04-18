@@ -36,6 +36,22 @@ namespace SortingExamples
             PrintList(list, one, two);
         }
 
+        public static void PrintCheck(List<int> list, int one, int two)
+        {
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.BackgroundColor = ConsoleColor.Black;
+                if (i == one)
+                    Console.BackgroundColor = ConsoleColor.Green;
+                if (i == two)
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.Write(list[i] + " ");
+                Console.BackgroundColor = ConsoleColor.Black;
+            }
+            Console.WriteLine("");
+        }
+
         public static void PrintList(List<int> list, int one, int two)
         {
             for (int i = 0; i < list.Count; i++)

@@ -20,6 +20,8 @@ namespace SortingExamples
                 {
                     if (list[x] > list[x + 1])
                         Program.Swap(list, x, x + 1);
+                    else
+                        Program.PrintCheck(list, x, x + 1);
                 }
             }
             Program.PrintList(list);
